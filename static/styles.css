@@ -1,0 +1,392 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box h1 {
+  margin-bottom: 24px;
+  color: #1a1a1a;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-input {
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.login-input:focus {
+  border-color: #1a1a1a;
+}
+
+.login-button {
+  padding: 12px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #333333;
+}
+
+/* Chat Page Styles */
+.chat-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 24px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 80%;
+  padding: 12px 24px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+.user-message .message-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.bot-message .message-content {
+  background-color: #f7f7f8;
+  color: #1a1a1a;
+}
+
+.input-container {
+  position: relative;
+  margin-top: auto;
+}
+
+.message-input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.message-input:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message-input::placeholder {
+  color: #999;
+}
+
+.disclaimer {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0 0 24px;
+}
+
+.feedback-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.feedback-button:hover {
+  opacity: 1;
+}
+
+.feedback-button.active-positive {
+  color: #00aa00;
+  opacity: 1;
+}
+
+.feedback-button.active-negative {
+  color: #aa0000;
+  opacity: 1;
+}
+
+/* Markdown Styles */
+.message-content h1,
+.message-content h2,
+.message-content h3 {
+  margin: 16px 0 8px 0;
+}
+
+.message-content p {
+  margin: 8px 0;
+}
+
+.message-content code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.message-content pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar Styles */
+.messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+
+/* Image preview container */
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Individual image preview */
+.image-preview {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Remove image button */
+.remove-image-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.remove-image-btn:hover {
+  opacity: 1;
+}
+
+/* Images in sent messages */
+.sent-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sent-image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+}
+
+/* Source Type Selector Styles */
+.source-type-selector {
+  position: absolute;
+  display: inline-block;
+  right: 16px;     /* Position to the right */
+  top: 8px;        /* Position higher to align with the text box */
+  z-index: 10;
+}
+
+.source-type-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f7f7f8;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Center the ellipsis horizontally */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 18px;          /* Make the ellipsis larger */
+  line-height: 0;           /* Fix vertical alignment */
+  padding-bottom: 3px;      /* Fine-tune vertical centering of the ellipsis */
+}
+
+.source-type-button:hover {
+  background-color: #e5e5e5;
+}
+
+.source-type-dropdown {
+  position: absolute;
+  top: 40px;        /* Position dropdown below the button */
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  min-width: 180px;
+  z-index: 100;
+  display: none;
+}
+
+.source-type-dropdown.show {
+  display: block;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.source-type-option {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.source-type-option:hover {
+  background-color: #f7f7f8;
+}
+
+.source-type-option.selected {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+/* Modify input container to properly position the selector */
+.input-container {
+  position: relative;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust the input padding to not overlap with the button */
+.message-input {
+  padding-right: 60px !important;
+}
+
+/* Version info indicator (for debugging) */
+.version-indicator {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+/* Adjust message content to handle images better */
+.message-content {
+  max-width: 80%;
+  padding: 12px 24px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+
+.bot-message .message-content img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 8px 0;
+}

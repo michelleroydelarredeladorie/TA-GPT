@@ -1,0 +1,11 @@
+voyageai
+langchain_community
+anthropic
+scikit-learn
+numpy
+matplotlib
+openai
+python-dotenv
+flask
+flask_session
+flask_sqlalchemy

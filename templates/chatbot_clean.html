@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="messages" id="messages">
+        <!-- Messages will be inserted here -->
+    </div>
+    <div class="input-container">
+        <textarea
+            id="message-input"
+            class="message-input"
+            placeholder="Ask a question to BeaverGPT"
+            rows="1"
+            autofocus
+        ></textarea>
+        <div class="disclaimer">
+            BeaverGPT may make mistakes on exercise questions, be critical of its answers
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

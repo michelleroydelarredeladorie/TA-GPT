@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Login - BeaverOpt{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h1>Welcome to BeaverOpt</h1>
+        <div class="login-form">
+            <input type="text" id="userId" placeholder="Enter your User ID" class="login-input">
+            <button onclick="login()" class="login-button">Login</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function login() {
+    const userId = document.getElementById('userId').value;
+    if (!userId) {
+        alert('Please enter a User ID');
+        return;
+    }
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: userId })
+        });
+
+        if (response.ok) {
+            window.location.href = '/';
+        } else {
+            const data = await response.json();
+            alert(data.message || 'Login failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred during login');
+    }
+}
+
+document.getElementById('userId').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        login();
+    }
+});
+</script>
+{% endblock %}
